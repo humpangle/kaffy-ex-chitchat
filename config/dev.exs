@@ -1,4 +1,4 @@
-use Mix.Config
+import Mix.Config
 
 # Configure your database
 config :chit_chat, ChitChat.Repo,
@@ -22,11 +22,17 @@ config :chit_chat, ChitChatWeb.Endpoint,
   check_origin: false,
   watchers: [
     node: [
-      "node_modules/webpack/bin/webpack.js",
-      "--mode",
-      "development",
-      "--watch-stdin",
-      cd: Path.expand("../assets", __DIR__)
+      "build.js",
+      cd:
+        Path.expand(
+          "../assets/scripts/",
+          __DIR__
+        ),
+      env: %{
+        "ESBUILD_LOG_LEVEL" => "silent",
+        "ESBUILD_WATCH" => "1",
+        "NODE_ENV" => "development"
+      }
     ]
   ]
 

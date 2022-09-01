@@ -1,5 +1,21 @@
 # ChitChat
 
+```sh
+npm install --save-dev \
+  fs \
+  path \
+  chokidar \
+  esbuild \
+  esbuild-sass-plugin \
+  postcss \
+  autoprefixer \
+  tailwindcss \
+  @fortawesome/fontawesome-free \
+  ../deps/phoenix \
+  ../deps/phoenix_html \
+  ../deps/phoenix_live_view
+```
+
 To start your Phoenix server:
 
   * Setup the project with `mix setup`

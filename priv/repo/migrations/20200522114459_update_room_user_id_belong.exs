@@ -4,7 +4,7 @@ defmodule ChitChat.Repo.Migrations.UpdateRoomUserIdBelong do
   def change do
     alter table(:rooms) do
       # modify :user_id, references(:users, on_delete: :delete_all), null: false
-      modify :user_id, references(:user, on_delete: :delete_all),
+      modify :user_id, references(:users, on_delete: :delete_all),
         from: references(:user, on_delete: :nothing), null: false
     end
 

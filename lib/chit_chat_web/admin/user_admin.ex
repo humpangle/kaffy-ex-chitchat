@@ -38,9 +38,8 @@ defmodule ChitChatWeb.UserAdmin do
 
   def index(_) do
     [
-      id: nil,
-      name: nil,
-      # username: nil,
+      # id: nil,
+      title: nil,
       username: %{
         name: "Username",
         value: fn p -> p.username end,

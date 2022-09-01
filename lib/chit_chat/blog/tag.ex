@@ -3,7 +3,7 @@ defmodule ChitChat.Blog.Tag do
   import Ecto.Changeset
 
   schema "tags" do
-    field :name, :string, null: false
+    field :name, :string
 
     many_to_many :posts, ChitChat.Blog.Post, join_through: "posts_tags"
 

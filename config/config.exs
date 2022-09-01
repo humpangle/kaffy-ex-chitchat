@@ -5,7 +5,7 @@
 # is restricted to this project.
 
 # General application configuration
-use Mix.Config
+import Mix.Config
 
 config :chit_chat,
   ecto_repos: [ChitChat.Repo]
@@ -18,7 +18,8 @@ config :chit_chat, ChitChatWeb.Endpoint,
   pubsub_server: ChitChat.PubSub,
   live_view: [signing_salt: "JOOvbotZ"],
   reloadable_compilers: [:gettext, :phoenix, :elixir]
-  # reloadable_apps: [:phoenix, :elixir]
+
+# reloadable_apps: [:phoenix, :elixir]
 
 config :chit_chat,
   upload_directory: "./uploads/images"
@@ -30,6 +31,22 @@ config :chit_chat, :pow,
   controller_callbacks: Pow.Extension.Phoenix.ControllerCallbacks,
   mailer_backend: ChitChatWeb.Pow.Mailer,
   web_module: ChitChatWeb
+
+config :esbuild,
+  version: "0.12.18",
+  node: [
+    "build.js",
+    cd:
+      Path.expand(
+        "../assets/scripts/",
+        __DIR__
+      ),
+    env: %{
+      "ESBUILD_LOG_LEVEL" => "silent",
+      "ESBUILD_WATCH" => "1",
+      "NODE_ENV" => "development"
+    }
+  ]
 
 # Configures Elixir's Logger
 config :logger, :console,
